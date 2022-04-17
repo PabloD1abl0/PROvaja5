@@ -12,7 +12,7 @@ jobs:
   # This workflow contains a single job called "build"
   build-win:
     # The type of runner that the job will run on
-    runs-on: self-hosted, windows-lastest
+    runs-on: self-hosted
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -26,8 +26,11 @@ jobs:
         - name: run
           run: make run
         
-        - name: clean
-          run: make clean
+        - name: make Artifact
+          uses: actions/upload-artifact@3
+          with:
+            name: artifact-windows
+            path: ./test.exe
 
   build-lin:
       # The type of runner that the job will run on
@@ -45,5 +48,8 @@ jobs:
         - name: run
           run: make run
         
-        - name: clean
-          run: make clean
+        - name: make Artifact
+          uses: actions/upload-artifact@3
+          with:
+            name: artifact-linux
+            path: ./test
