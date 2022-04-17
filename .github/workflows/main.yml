@@ -30,7 +30,7 @@ jobs:
           uses: actions/upload-artifact@v3
           with:
             name: artifact-windows
-            path: ./test.exe
+            path: ./main.exe
 
   build-lin:
       # The type of runner that the job will run on
@@ -52,4 +52,4 @@ jobs:
           uses: actions/upload-artifact@v3
           with:
             name: artifact-linux
-            path: ./test
+            path: ./main
